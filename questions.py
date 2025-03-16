@@ -1,5 +1,4 @@
 import random
-import sys
 # Preguntas para el juego
 questions = [ "¿Qué función se usa para obtener la longitud de una cadena en Python?", 
              "¿Cuál de las siguientes opciones es un número entero en Python?",
@@ -20,39 +19,39 @@ answers =  [("size()", "len()", "length()", "count()"),
 # Índice de la respuesta correcta para cada pregunta, en el mismo orden que las preguntas
 correct_answers_index = [1, 2, 0, 3, 1]
 
-# El usuario deberá contestar 3 preguntas 
-for _ in range(3):
-     # Se selecciona una pregunta aleatoria
-     question_index = random.randint(0, len(questions) - 1) 
+# Se seleccionan 3 preguntas sin repeticion
+questions_to_ask = random.sample(list(zip(questions, answers, correct_answers_index)), k=3)
 
-    # Se muestra la pregunta y las respuestas posibles
-     print(questions[question_index])
-     for i, answer in enumerate(answers[question_index]):
-         print(f"{i + 1}. {answer}")
+score = 0.0
+# El usuario deberá contestar 3 preguntas 
+# Se muestra la pregunta y las respuestas posibles
+for question, options, correct_index in questions_to_ask:
+     print (question)
+     for i, option in enumerate(options):
+         print(f'{i+1}. {option}') 
 
      # El usuario tiene 2 intentos para responder correctamente
      for intento in range(2):
          user_answer = input("Respuesta: ")
-
+    
          # Se verifica que la respuesta sea un numero dentro del rango
-         if user_answer.isnumeric and int(user_answer) in range(len(answers[question_index])):
-             print ("Es un numero dentro del rango")
-             user_answer = int(user_answer) - 1
-
-             # Se verifica si la respuesta es correcta
-             if user_answer == correct_answers_index[question_index]:
-                 print("¡Correcto!")
-                 break
-             
-             # Si el usuario no responde correctamente después de 2 intentos,
-             # se muestra la respuesta correcta
-             else:
-                 if intento == 1:
-                     print("Incorrecto. La respuesta correcta es:")
-                     print(answers[question_index] [correct_answers_index[question_index]])
-         else:
+         #if not user_answer.isnumeric() or user_answer.isnumeric() and int(user_answer)-1 not in range(len(options)):
+         if not user_answer.isnumeric() or int(user_answer)-1 not in range(len(options)):
              print ("Respuesta no valida!")
-             sys.exit(1)
-         
+             exit(1)
 
-print("Fin del juego!")
+         user_answer = int(user_answer) - 1
+         # Se verifica si la respuesta es correcta
+         if user_answer == correct_index:
+             print("¡Correcto!")
+             score += 1
+             break
+         # Si el usuario no responde correctamente después de 2 intentos,
+         # se muestra la respuesta correcta
+         else:
+             score -= 0.5
+             if intento == 1:
+                 print("Incorrecto. La respuesta correcta es:")
+                 print(options[correct_index])
+
+print(f'Fin del juego! El puntaje obtenido ha sido: {score}')
