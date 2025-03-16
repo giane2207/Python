@@ -24,8 +24,8 @@ questions_to_ask = random.sample(list(zip(questions, answers, correct_answers_in
 
 score = 0.0
 # El usuario deberá contestar 3 preguntas 
-# Se muestra la pregunta y las respuestas posibles
 for question, options, correct_index in questions_to_ask:
+     # Se muestra la pregunta y las respuestas posibles
      print (question)
      for i, option in enumerate(options):
          print(f'{i+1}. {option}') 
@@ -35,7 +35,6 @@ for question, options, correct_index in questions_to_ask:
          user_answer = input("Respuesta: ")
     
          # Se verifica que la respuesta sea un numero dentro del rango
-         #if not user_answer.isnumeric() or user_answer.isnumeric() and int(user_answer)-1 not in range(len(options)):
          if not user_answer.isnumeric() or int(user_answer)-1 not in range(len(options)):
              print ("Respuesta no valida!")
              exit(1)
