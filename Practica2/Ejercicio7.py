@@ -7,6 +7,7 @@ def es_valido (user: str):
     return len(user) <= 15 and user.isalnum()
 
 def generar_codigo (user: str):
+    """Genera un codigo de descuento basado en el nombre de usuario y la fecha actual"""
     fecha_actual = date.today().strftime("%Y%m%d")   
     alfanumericos = string.ascii_uppercase + string.digits
     user_mayus = user.upper()
@@ -20,11 +21,10 @@ def generar_codigo (user: str):
     codigo = f'{user_mayus}-{fecha_actual}-{parte_aleatoria}'
     return codigo
     
-    
-
-
 
 user = input('Ingrese nombre de usuario: ')
-if (es_valido(user)):
+
+if es_valido(user):
     print(f'Codigo de descuento: {generar_codigo(user)}')
-else: print(f'El usuario no es valido')
+else: 
+    print(f'El usuario no es valido')
