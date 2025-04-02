@@ -29,7 +29,7 @@ def imprimir_ranking(ranking):
     """Devuelve el ranking ordenado en forma de cadena."""
     ranking_ordenado = sorted(ranking.items(), key=lambda x: x[1]['points'], reverse=True)
 
-    resultado = "Jugador     Kills   Asistencias   Muertes   MVPs   Puntos\n"
+    resultado = "Jugador   Kills   Asistencias   Muertes   MVPs   Puntos\n"
     resultado += "---------------------------------------------------------\n"
 
     for jugador, stats in ranking_ordenado:

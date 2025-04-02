@@ -10,13 +10,13 @@ def simulador_partidas (rounds, scoring):
 
          for jugador, datos in ronda.items():  
              #Inicializar jugador si no esta en el ranking
-             utils.inicializar_jugador(jugador, ranking)
+             inicializar_jugador(jugador, ranking)
             
              # Actualizo los datos del jugador
-             utils.actualizar_jugador(jugador, ranking, datos)
+             actualizar_jugador(jugador, ranking, datos)
             
              # Calculo puntos obtenidos en esta ronda
-             puntos = utils.calcular_puntos(datos, scoring) 
+             puntos = calcular_puntos(datos, scoring) 
              ranking[jugador]['points'] += puntos
              points_round[jugador] = puntos
 
@@ -26,8 +26,8 @@ def simulador_partidas (rounds, scoring):
 
          # Muestro el ranking parcial
          print("\nRanking Parcial:")
-         print(utils.imprimir_ranking(ranking))
+         print(imprimir_ranking(ranking))
 
     # Muestro el ranking final
     print("\nRanking Final:")
-    print(utils.imprimir_ranking(ranking))
+    print(imprimir_ranking(ranking))
