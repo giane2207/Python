@@ -1,3 +1,5 @@
+from simulador import simulador_partidas
+
 scoring = {
     'kill': 3,
     'assist': 1,
@@ -41,3 +43,7 @@ rounds = [
         'Reaper': {'kills': 1, 'assists': 1, 'deaths': True}
     }
 ]  
+
+
+simulador_partidas(rounds, scoring)
+
