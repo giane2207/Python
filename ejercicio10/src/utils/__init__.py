@@ -1,4 +1,3 @@
-
 def inicializar_jugador (jugador, ranking):
     """Inserta nuevos jugadores en el ranking con sus datos incializados"""
     if jugador not in ranking:  

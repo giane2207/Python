@@ -1,4 +1,4 @@
-import utils
+from src.utils import *
 
 def simulador_partidas (rounds, scoring):
     """Simula todas las rondas y muestra los rankings parciales y final"""

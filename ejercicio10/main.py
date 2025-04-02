@@ -1,4 +1,4 @@
-from simulador import simulador_partidas
+from src import simulador_partidas
 
 scoring = {
     'kill': 3,
