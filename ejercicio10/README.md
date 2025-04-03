@@ -36,7 +36,9 @@ jupyter notebook
 ```
 
 * Una vez ingresado el comando se debera abrir su navegador:
-![alt text](<Captura de pantalla 2025-04-03 105048.png>)
+  
+  <img width="896" alt="Captura de pantalla 2025-04-03 105048" src="https://github.com/user-attachments/assets/0341d353-10ce-4f7a-90f7-6c4525193ffe" />
+
 
 * Ingrese en ejercio10 < src < Notebooks < simulador.ipynb
 
